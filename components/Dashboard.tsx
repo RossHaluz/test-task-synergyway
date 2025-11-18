@@ -76,7 +76,7 @@ const Dashboard = () => {
       <div className="h-[calc(100vh-108px)] p-4">
         <Mosaic<WidgetId>
           renderTile={renderTile}
-          value={currentNode}
+          initialValue={currentNode}
           onChange={setCurrentNode}
         />
       </div>
