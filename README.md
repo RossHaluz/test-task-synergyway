@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Next.js Project
+Цей проєкт розроблений на Next.js та підтримує запуск як локально, так і через Docker для продакшн-середовища.
 
-## Getting Started
+📦 Технології
+Next.js
+TypeScript
+Docker
 
-First, run the development server:
+⚙️ Локальний запуск
+1. Встановити залежності:
+npm install
 
-```bash
+2. Запустити локальний сервер:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Відкрити в браузері:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🐳 Docker
+🔨 Зібрати Docker image:
+docker build -t my-next-app .
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+▶️ Запустити контейнер:
+docker run -p 3000:3000 my-next-app
 
-## Learn More
+Після запуску застосунок буде доступний за адресою:
+http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+📄 Dockerfile
+FROM node:20-alpine
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+EXPOSE 3000
+CMD ["npm", "start"]
 
-## Deploy on Vercel
+🧪 Корисні команди
+npm run dev      — запуск у режимі розробки
+npm run build    — продакшн-збірка
+npm start        — запуск продакшн сервера
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+👨‍💻 Автор
+Ростислав Галузинський
+Full-Stack Developer (React & Node.js)
